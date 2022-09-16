@@ -1,1 +1,19 @@
 
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo UPDATING CACHE
+      - apt update
+  pre_build:
+    commands:
+      - echo Installing apache...
+      - apt install apache2 -y
+  build:
+    commands:
+      - echo starting apache2
+      - systemctl start apache2
+  post_build:
+    commands:
+      - echo Build completed
